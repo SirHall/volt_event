@@ -1,0 +1,14 @@
+ColumnLimit: 80
+AllowShortFunctionsOnASingleLine: All
+#AllowShortIfStatementsOnASingleLine: WithoutElse
+BreakBeforeBraces: Allman
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+#AllowAllConstructorInitializersOnNextLine: true
+AllowShortBlocksOnASingleLine: true
+IndentCaseLabels: true
+IndentWrappedFunctionNames: true
+NamespaceIndentation: All
+IndentWidth: 4
+AlwaysBreakTemplateDeclarations: Yes
