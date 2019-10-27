@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <functional>
 #include <iostream>
+#include <vector>
 
 namespace volt::event
 {
