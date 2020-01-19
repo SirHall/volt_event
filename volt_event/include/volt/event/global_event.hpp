@@ -5,7 +5,6 @@
 // #include "volt/global_events/observer.hpp"
 #include <algorithm>
 #include <functional>
-#include <iostream>
 #include <mutex>
 #include <vector>
 

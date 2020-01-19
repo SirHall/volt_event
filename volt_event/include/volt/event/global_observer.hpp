@@ -47,10 +47,8 @@ namespace volt::event
          */
         ~observer()
         {
-            std::cout << "Before del" << std::endl;
             // Unsubscribe from global_event
             global_event<T>::unsubscribe(&event);
-            std::cout << "After del" << std::endl;
         }
     };
 } // namespace volt::event
