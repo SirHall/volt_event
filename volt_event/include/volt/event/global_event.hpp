@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <functional>
 #include <iostream>
+#include <mutex>
 #include <vector>
 
 namespace volt::event
@@ -26,6 +27,7 @@ namespace volt::event
          *
          */
         static inline std::vector<std::function<void(T const &)> *> subscribers;
+        static inline std::recursive_mutex                          sub_mut;
 
       public:
         /**
@@ -47,6 +49,7 @@ namespace volt::event
          */
         static void call_event(T const &inst)
         {
+            auto lck = std::lock_guard(sub_mut);
             for (auto subscriber : subscribers)
                 (*subscriber)(inst);
         }
@@ -58,6 +61,7 @@ namespace volt::event
          */
         static void subscribe(std::function<void(T const &)> *obs)
         {
+            auto lck = std::lock_guard(sub_mut);
             subscribers.push_back(obs);
         }
 
@@ -69,6 +73,7 @@ namespace volt::event
         static void unsubscribe(std::function<void(T const &)> *obs)
         {
             bool in_place = true; // TODO: Move this
+            auto lck      = std::lock_guard(sub_mut);
             auto it = std::find(subscribers.begin(), subscribers.end(), obs);
             if (it != subscribers.end())
             {
