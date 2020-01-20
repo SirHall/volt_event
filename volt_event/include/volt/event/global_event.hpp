@@ -25,8 +25,8 @@ namespace volt::event
          * this event is fired
          *
          */
-        static inline std::vector<std::function<void(T const &)> *> subscribers;
-        static inline std::recursive_mutex                          sub_mut;
+        static inline std::vector<std::function<void(T &)> *> subscribers;
+        static inline std::recursive_mutex                    sub_mut;
 
       public:
         /**
@@ -46,7 +46,7 @@ namespace volt::event
          * @param inst An instance of the data of type T to share between all
          * observers
          */
-        static void call_event(T const &inst)
+        static void call_event(T &inst)
         {
             auto lck = std::lock_guard(sub_mut);
             for (auto subscriber : subscribers)
@@ -58,7 +58,7 @@ namespace volt::event
          *
          * @param obs The observer that will get called
          */
-        static void subscribe(std::function<void(T const &)> *obs)
+        static void subscribe(std::function<void(T &)> *obs)
         {
             auto lck = std::lock_guard(sub_mut);
             subscribers.push_back(obs);
@@ -69,7 +69,7 @@ namespace volt::event
          *
          * @param obs The observer to remove from the callback list
          */
-        static void unsubscribe(std::function<void(T const &)> *obs)
+        static void unsubscribe(std::function<void(T &)> *obs)
         {
             bool in_place = true; // TODO: Move this
             auto lck      = std::lock_guard(sub_mut);

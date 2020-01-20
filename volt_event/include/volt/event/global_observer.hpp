@@ -19,7 +19,7 @@ namespace volt::event
     class observer
     {
       private:
-        std::function<void(T const &)> event;
+        std::function<void(T &)> event;
 
       public:
         /**
@@ -34,7 +34,7 @@ namespace volt::event
          *
          * @param action The function to invoke when the event is fired
          */
-        observer(std::function<void(T const &)> action)
+        observer(std::function<void(T &)> action)
         {
             // Subscribe to global_event
             event = action;
