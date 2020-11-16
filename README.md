@@ -4,5 +4,3 @@
 
     It allows for pure decoupling of different systems if those
     systems only interact together through the use of global_event's.
-
-# Planned
