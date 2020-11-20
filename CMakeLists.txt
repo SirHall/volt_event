@@ -1,11 +1,11 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.9)
 
 project(volt_ge_event)
 
 # Add in volt_mem
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/volt_event/)
 
-# Setup Dyygen
+# Setup Doxygen
 # find_package(Doxygen)
 # if (DOXYGEN_FOUND)
 #     set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
