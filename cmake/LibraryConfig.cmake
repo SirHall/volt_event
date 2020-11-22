@@ -1,5 +1,5 @@
 # Target
-add_library(${LIBRARY_NAME}
+add_library(${LIBRARY_NAME} INTERFACE
   ${SOURCES}
   ${HEADERS_PUBLIC}
   ${HEADERS_PRIVATE}
@@ -10,14 +10,14 @@ add_library(${LIBRARY_NAME}
 add_library(${PROJECT_NAME}::${LIBRARY_NAME} ALIAS ${LIBRARY_NAME})
 
 # C++17
-target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_17)
+target_compile_features(${LIBRARY_NAME} INTERFACE cxx_std_17)
 
 # Add definitions for targets
 # Values:
 #   - Debug  : -DFOO_DEBUG=1
 #   - Release: -DFOO_DEBUG=0
 #   - others : -DFOO_DEBUG=0
-target_compile_definitions(${LIBRARY_NAME} PUBLIC
+target_compile_definitions(${LIBRARY_NAME} INTERFACE
   "${PROJECT_NAME_UPPERCASE}_DEBUG=$<CONFIG:Debug>")
 
 # Global includes. Used by all targets
@@ -25,7 +25,7 @@ target_compile_definitions(${LIBRARY_NAME} PUBLIC
 #   - header can be included by C++ code `#include <foo/foo.h>`
 #   - header location in project: ${CMAKE_CURRENT_BINARY_DIR}/generated_headers
 target_include_directories(
-  ${LIBRARY_NAME} PUBLIC
+  ${LIBRARY_NAME} INTERFACE
     "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>"
     "$<BUILD_INTERFACE:${GENERATED_HEADERS_DIR}>"
     "$<INSTALL_INTERFACE:.>"
