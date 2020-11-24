@@ -1,9 +1,5 @@
 # Target
-add_library(${LIBRARY_NAME} INTERFACE
-  ${SOURCES}
-  ${HEADERS_PUBLIC}
-  ${HEADERS_PRIVATE}
-  )
+add_library(${LIBRARY_NAME} INTERFACE)
 
 # Alias:
 #   - Foo::foo alias of foo
