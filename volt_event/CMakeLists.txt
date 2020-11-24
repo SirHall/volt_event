@@ -18,7 +18,7 @@ file(GLOB_RECURSE VOLT_EVENT_HEADERS
 )
 
 set(SOURCES ${VOLT_EVENT_SRCS})
-set(HEADERS_PUBLIC ${VOLT_EVENT_HEADER})
+set(HEADERS_PUBLIC ${VOLT_EVENT_HEADERS})
 
 # add_library(volt_event INTERFACE)
 # target_include_directories(volt_event INTERFACE ${VOLT_EVENT_INCLUDE_DIR})
