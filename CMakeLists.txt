@@ -1,23 +1,11 @@
 cmake_minimum_required(VERSION 3.9)
 
-project(volt_event VERSION 0.0.7)
+project(volt_event VERSION 0.0.8)
 
 # include(${PROJECT_SOURCE_DIR}/cmake/SetEnv.cmake)
 
 # add_subdirectory(${LIBRARY_FOLDER})
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/volt_event/)
-
-include(GNUInstallDirs)
-include(CMakePackageConfigHelpers)
-
-install(
-    TARGETS              volt_event
-    EXPORT               "${TARGETS_EXPORT_NAME}"
-    LIBRARY DESTINATION  "${CMAKE_INSTALL_LIBDIR}"
-    ARCHIVE DESTINATION  "${CMAKE_INSTALL_LIBDIR}"
-    RUNTIME DESTINATION  "${CMAKE_INSTALL_BINDIR}"
-    INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
-)
 
 # Setup Doxygen
 # find_package(Doxygen)
