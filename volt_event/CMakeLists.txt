@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 add_library(volt_event INTERFACE)
-target_include_directories(volt_event INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include/"
-    "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>"
-    "$<BUILD_INTERFACE:${generated_headers}>"
-)
+target_include_directories(volt_event INTERFACE "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>")
 target_link_libraries (volt_event ${CMAKE_THREAD_LIBS_INIT})
 
 include(GNUInstallDirs)
@@ -40,7 +37,7 @@ install(
 
 # Headers
 install(
-    DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/include/"
+    DIRECTORY "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
     # FILES_MATCHING PATTERN "*.hpp"
 )
@@ -53,21 +50,8 @@ install(
 
 # Config
 #   * <prefix>/lib/cmake/Foo/FooTargets.cmake
-# install(
-#     EXPORT "${TARGETS_EXPORT_NAME}"
-#     # NAMESPACE "${namespace}"
-#     DESTINATION "${config_install_dir}"
-# )
-
-# Find all header files
-# file(GLOB_RECURSE VOLT_EVENT_HEADERS
-#     "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp"
-#     "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h"
-#     RELATIVE_PATH
-# )
-
-# set(SOURCES ${VOLT_EVENT_SRCS})
-# set(HEADERS_PUBLIC ${VOLT_EVENT_HEADERS})
-
-# include(${PROJECT_SOURCE_DIR}/cmake/LibraryConfig.cmake)
-# target_link_libraries(${LIBRARY_NAME} ${CMAKE_THREAD_LIBS_INIT})
+install(
+    EXPORT "${TARGETS_EXPORT_NAME}"
+    # NAMESPACE "${namespace}"
+    DESTINATION "${config_install_dir}"
+)
