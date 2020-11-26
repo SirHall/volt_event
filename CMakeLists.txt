@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.9)
 
-project(volt_event VERSION 0.0.10)
+project(volt_event VERSION 0.0.11)
 
 # include(${PROJECT_SOURCE_DIR}/cmake/SetEnv.cmake)
 
