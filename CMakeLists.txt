@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.9)
 
-project(volt_event VERSION 0.0.8)
+project(volt_event VERSION 0.0.9)
 
 # include(${PROJECT_SOURCE_DIR}/cmake/SetEnv.cmake)
+
+# set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/inst/") # For testing
 
 # add_subdirectory(${LIBRARY_FOLDER})
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/volt_event/)
